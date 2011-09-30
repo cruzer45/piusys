@@ -18,6 +18,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import piusys.customers.FrmAddCustomer;
+import piusys.projects.FrmAddProject;
 
 /**
  * The application's main frame.
@@ -28,6 +29,7 @@ public class PIUSYSView extends FrameView
     static final Logger logger = Logger.getLogger(PIUSYSView.class.getName());
     //FORM OBJECTS
     FrmAddCustomer frmAddCustomer = null;
+    FrmAddProject frmAddProject = null;
 
     public PIUSYSView(SingleFrameApplication app)
     {
@@ -168,6 +170,8 @@ public class PIUSYSView extends FrameView
         javax.swing.JMenuItem exitMenuItem = new javax.swing.JMenuItem();
         customerMenu = new javax.swing.JMenu();
         addCustomer = new javax.swing.JMenuItem();
+        projectMenu = new javax.swing.JMenu();
+        addProject = new javax.swing.JMenuItem();
         javax.swing.JMenu helpMenu = new javax.swing.JMenu();
         javax.swing.JMenuItem aboutMenuItem = new javax.swing.JMenuItem();
         statusPanel = new javax.swing.JPanel();
@@ -178,6 +182,8 @@ public class PIUSYSView extends FrameView
 
         mainPanel.setName("mainPanel"); // NOI18N
 
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(piusys.PIUSYSApp.class).getContext().getResourceMap(PIUSYSView.class);
+        desktopPane.setBackground(resourceMap.getColor("desktopPane.background")); // NOI18N
         desktopPane.setName("desktopPane"); // NOI18N
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
@@ -188,12 +194,11 @@ public class PIUSYSView extends FrameView
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
         );
 
         menuBar.setName("menuBar"); // NOI18N
 
-        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(piusys.PIUSYSApp.class).getContext().getResourceMap(PIUSYSView.class);
         fileMenu.setText(resourceMap.getString("fileMenu.text")); // NOI18N
         fileMenu.setName("fileMenu"); // NOI18N
 
@@ -214,6 +219,16 @@ public class PIUSYSView extends FrameView
         customerMenu.add(addCustomer);
 
         menuBar.add(customerMenu);
+
+        projectMenu.setText(resourceMap.getString("projectMenu.text")); // NOI18N
+        projectMenu.setName("projectMenu"); // NOI18N
+
+        addProject.setAction(actionMap.get("showAddProject")); // NOI18N
+        addProject.setText(resourceMap.getString("addProject.text")); // NOI18N
+        addProject.setName("addProject"); // NOI18N
+        projectMenu.add(addProject);
+
+        menuBar.add(projectMenu);
 
         helpMenu.setText(resourceMap.getString("helpMenu.text")); // NOI18N
         helpMenu.setName("helpMenu"); // NOI18N
@@ -243,7 +258,7 @@ public class PIUSYSView extends FrameView
             .addGroup(statusPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(statusMessageLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 230, Short.MAX_VALUE)
                 .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(statusAnimationLabel)
@@ -289,13 +304,39 @@ public class PIUSYSView extends FrameView
             }
         }
     }
+
+    @Action
+    public void showAddProject()
+    {
+        //Verify if the form is already loaded
+        boolean AlreadyLoaded = isLoaded("Add Project");
+        if (AlreadyLoaded == false)
+        {
+            frmAddProject = new FrmAddProject();
+            desktopPane.add(frmAddProject);
+            //Load the Form
+            frmAddProject.setVisible(true);
+            frmAddProject.show();
+            try
+            {
+                frmAddProject.setIcon(false);
+                frmAddProject.setSelected(true);
+            }
+            catch (Exception e)
+            {
+                logger.log(Level.SEVERE, "Error displaying the form.", e);
+            }
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem addCustomer;
+    private javax.swing.JMenuItem addProject;
     private javax.swing.JMenu customerMenu;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JProgressBar progressBar;
+    private javax.swing.JMenu projectMenu;
     private javax.swing.JLabel statusAnimationLabel;
     private javax.swing.JLabel statusMessageLabel;
     private javax.swing.JPanel statusPanel;

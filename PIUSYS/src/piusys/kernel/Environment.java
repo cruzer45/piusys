@@ -38,7 +38,7 @@ public class Environment
     {
         try
         {
-            properties.load(new FileInputStream("conf/iLearn.properties"));
+            properties.load(new FileInputStream("conf/PIUSYS.properties"));
         }
         catch (Exception e)
         {
@@ -46,7 +46,7 @@ public class Environment
                     "An error occurred."
                     + "\nCould not read the application's settings."
                     + "\n\nKindly consult the system administrator.",
-                    "iLoan", JOptionPane.ERROR_MESSAGE);
+                    "PIUSYS", JOptionPane.ERROR_MESSAGE);
             String message = "The properties file could not be read.";
             logger.log(Level.SEVERE, message, e);
             System.exit(1);

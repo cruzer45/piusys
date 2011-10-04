@@ -21,7 +21,10 @@ public class Customer
         boolean successful = false;
         try
         {
-            String sql = "";
+            String sql = "INSERT INTO `customers` "
+                    + " (`custName`, `custContact1`, `custContact2`, `custAddress`, `custPhone1`, `custPhone2`, `custEmail`, `custFax`, `custTIN`, `custNotes`, `custCreated`, `custStatus`) "
+                    + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ;";
+            
         }
         catch (Exception e)
         {

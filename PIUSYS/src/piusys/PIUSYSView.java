@@ -18,6 +18,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import piusys.customers.FrmAddCustomer;
+import piusys.kernel.Environment;
 import piusys.projects.FrmAddProject;
 
 /**
@@ -25,16 +26,16 @@ import piusys.projects.FrmAddProject;
  */
 public class PIUSYSView extends FrameView
 {
-
+    
     static final Logger logger = Logger.getLogger(PIUSYSView.class.getName());
     //FORM OBJECTS
     FrmAddCustomer frmAddCustomer = null;
     FrmAddProject frmAddProject = null;
-
+    
     public PIUSYSView(SingleFrameApplication app)
     {
         super(app);
-
+        
         initComponents();
 
         // status bar initialization - message timeout, idle icon and busy animation, etc
@@ -42,7 +43,7 @@ public class PIUSYSView extends FrameView
         int messageTimeout = resourceMap.getInteger("StatusBar.messageTimeout");
         messageTimer = new Timer(messageTimeout, new ActionListener()
         {
-
+            
             public void actionPerformed(ActionEvent e)
             {
                 statusMessageLabel.setText("");
@@ -56,7 +57,7 @@ public class PIUSYSView extends FrameView
         }
         busyIconTimer = new Timer(busyAnimationRate, new ActionListener()
         {
-
+            
             public void actionPerformed(ActionEvent e)
             {
                 busyIconIndex = (busyIconIndex + 1) % busyIcons.length;
@@ -71,7 +72,7 @@ public class PIUSYSView extends FrameView
         TaskMonitor taskMonitor = new TaskMonitor(getApplication().getContext());
         taskMonitor.addPropertyChangeListener(new java.beans.PropertyChangeListener()
         {
-
+            
             public void propertyChange(java.beans.PropertyChangeEvent evt)
             {
                 String propertyName = evt.getPropertyName();
@@ -108,6 +109,10 @@ public class PIUSYSView extends FrameView
                 }
             }
         });
+        
+        Environment.createConnection();
+        Environment.setDesktopPane(desktopPane);
+        Environment.setMainFrame(getFrame());
     }
 
     /**
@@ -141,7 +146,7 @@ public class PIUSYSView extends FrameView
         }
         return false;
     }
-
+    
     @Action
     public void showAboutBox()
     {
@@ -304,7 +309,7 @@ public class PIUSYSView extends FrameView
             }
         }
     }
-
+    
     @Action
     public void showAddProject()
     {

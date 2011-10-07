@@ -30,7 +30,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" pref="350" max="32767" attributes="0"/>
+              <Component id="customerTabbedPane" pref="350" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -39,29 +39,29 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" pref="288" max="32767" attributes="0"/>
+              <Component id="customerTabbedPane" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+    <Container class="javax.swing.JTabbedPane" name="customerTabbedPane">
       <Properties>
-        <Property name="name" type="java.lang.String" value="jTabbedPane1" noResource="true"/>
+        <Property name="name" type="java.lang.String" value="customerTabbedPane" noResource="true"/>
       </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="jPanel1">
+        <Container class="javax.swing.JPanel" name="generalPanel">
           <Properties>
-            <Property name="name" type="java.lang.String" value="jPanel1" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="generalPanel" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="General">
-                <Property name="tabTitle" type="java.lang.String" resourceKey="jPanel1.TabConstraints.tabTitle"/>
-                <Property name="tabIcon" type="javax.swing.Icon" resourceKey="jPanel1.TabConstraints.tabIcon"/>
+                <Property name="tabTitle" type="java.lang.String" resourceKey="generalPanel.TabConstraints.tabTitle"/>
+                <Property name="tabIcon" type="javax.swing.Icon" resourceKey="generalPanel.TabConstraints.tabIcon"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -74,21 +74,23 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblPriContact" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblSecContact" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField3" alignment="0" pref="225" max="32767" attributes="0"/>
-                                  <Component id="jTextField2" alignment="0" pref="225" max="32767" attributes="0"/>
-                                  <Component id="jTextField1" alignment="0" pref="225" max="32767" attributes="0"/>
+                                  <Component id="txtContact2" alignment="0" pref="255" max="32767" attributes="0"/>
+                                  <Component id="txtContact1" alignment="0" pref="255" max="32767" attributes="0"/>
+                                  <Component id="txtName" alignment="0" pref="255" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="66" max="32767" attributes="0"/>
+                              <Component id="cmdNext" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="cmdCancel" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -100,23 +102,24 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtName" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblPriContact" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtContact1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblSecContact" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtContact2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="138" max="32767" attributes="0"/>
+                      <EmptySpace pref="143" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="cmdCancel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmdNext" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -124,71 +127,80 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel1">
+            <Component class="javax.swing.JLabel" name="lblName">
               <Properties>
-                <Property name="text" type="java.lang.String" resourceKey="jLabel1.text"/>
-                <Property name="name" type="java.lang.String" value="jLabel1" noResource="true"/>
+                <Property name="text" type="java.lang.String" resourceKey="lblName.text"/>
+                <Property name="name" type="java.lang.String" value="lblName" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
+            <Component class="javax.swing.JTextField" name="txtName">
               <Properties>
-                <Property name="text" type="java.lang.String" resourceKey="jTextField1.text"/>
-                <Property name="name" type="java.lang.String" value="jTextField1" noResource="true"/>
+                <Property name="text" type="java.lang.String" resourceKey="txtName.text"/>
+                <Property name="name" type="java.lang.String" value="txtName" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
+            <Component class="javax.swing.JLabel" name="lblPriContact">
               <Properties>
-                <Property name="text" type="java.lang.String" resourceKey="jLabel2.text"/>
-                <Property name="name" type="java.lang.String" value="jLabel2" noResource="true"/>
+                <Property name="text" type="java.lang.String" resourceKey="lblPriContact.text"/>
+                <Property name="name" type="java.lang.String" value="lblPriContact" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField2">
+            <Component class="javax.swing.JTextField" name="txtContact1">
               <Properties>
-                <Property name="text" type="java.lang.String" resourceKey="jTextField2.text"/>
-                <Property name="name" type="java.lang.String" value="jTextField2" noResource="true"/>
+                <Property name="text" type="java.lang.String" resourceKey="txtContact1.text"/>
+                <Property name="name" type="java.lang.String" value="txtContact1" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel3">
+            <Component class="javax.swing.JLabel" name="lblSecContact">
               <Properties>
-                <Property name="text" type="java.lang.String" resourceKey="jLabel3.text"/>
-                <Property name="name" type="java.lang.String" value="jLabel3" noResource="true"/>
+                <Property name="text" type="java.lang.String" resourceKey="lblSecContact.text"/>
+                <Property name="name" type="java.lang.String" value="lblSecContact" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField3">
+            <Component class="javax.swing.JTextField" name="txtContact2">
               <Properties>
-                <Property name="text" type="java.lang.String" resourceKey="jTextField3.text"/>
-                <Property name="name" type="java.lang.String" value="jTextField3" noResource="true"/>
+                <Property name="text" type="java.lang.String" resourceKey="txtContact2.text"/>
+                <Property name="name" type="java.lang.String" value="txtContact2" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="cmdCancel">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="piusys.customers.FrmAddCustomer" id="cancel" methodName="cancel"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="cmdCancel.text"/>
+                <Property name="name" type="java.lang.String" value="cmdCancel" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="cmdNext">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="piusys.customers.FrmAddCustomer" id="next" methodName="next"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="cmdNext.text"/>
+                <Property name="name" type="java.lang.String" value="cmdNext" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButton1">
               <Properties>
                 <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
-                  <action class="piusys.customers.FrmAddCustomer" id="cancel" methodName="cancel"/>
+                  <action class="piusys.customers.FrmAddCustomer" id="resetForm" methodName="resetForm"/>
                 </Property>
                 <Property name="text" type="java.lang.String" resourceKey="jButton1.text"/>
                 <Property name="name" type="java.lang.String" value="jButton1" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
-              <Properties>
-                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
-                  <action class="piusys.customers.FrmAddCustomer" id="next" methodName="next"/>
-                </Property>
-                <Property name="text" type="java.lang.String" resourceKey="jButton2.text"/>
-                <Property name="name" type="java.lang.String" value="jButton2" noResource="true"/>
-              </Properties>
-            </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel2">
+        <Container class="javax.swing.JPanel" name="addressPanel">
           <Properties>
-            <Property name="name" type="java.lang.String" value="jPanel2" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="addressPanel" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Address">
-                <Property name="tabTitle" type="java.lang.String" resourceKey="jPanel2.TabConstraints.tabTitle"/>
-                <Property name="tabIcon" type="javax.swing.Icon" resourceKey="jPanel2.TabConstraints.tabIcon"/>
+                <Property name="tabTitle" type="java.lang.String" resourceKey="addressPanel.TabConstraints.tabTitle"/>
+                <Property name="tabIcon" type="javax.swing.Icon" resourceKey="addressPanel.TabConstraints.tabIcon"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -200,19 +212,19 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cmdNext2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+                              <Component id="cmdCancel2" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblAddress" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblEmail" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField7" alignment="1" pref="254" max="32767" attributes="0"/>
-                                  <Component id="jScrollPane1" alignment="0" pref="254" max="32767" attributes="0"/>
+                                  <Component id="txtEmail" alignment="1" pref="278" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane1" alignment="0" pref="278" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -226,17 +238,17 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane1" alignment="0" min="-2" pref="141" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblAddress" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="47" max="32767" attributes="0"/>
+                      <EmptySpace pref="48" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmdCancel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmdNext2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -244,10 +256,10 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel4">
+            <Component class="javax.swing.JLabel" name="lblAddress">
               <Properties>
-                <Property name="text" type="java.lang.String" resourceKey="jLabel4.text"/>
-                <Property name="name" type="java.lang.String" value="jLabel4" noResource="true"/>
+                <Property name="text" type="java.lang.String" resourceKey="lblAddress.text"/>
+                <Property name="name" type="java.lang.String" value="lblAddress" noResource="true"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -260,54 +272,54 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="jTextArea1">
+                <Component class="javax.swing.JTextArea" name="txtAddress">
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
-                    <Property name="name" type="java.lang.String" value="jTextArea1" noResource="true"/>
+                    <Property name="name" type="java.lang.String" value="txtAddress" noResource="true"/>
                   </Properties>
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="jButton3">
+            <Component class="javax.swing.JButton" name="cmdNext2">
               <Properties>
                 <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
                   <action class="piusys.customers.FrmAddCustomer" id="next" methodName="next"/>
                 </Property>
-                <Property name="name" type="java.lang.String" value="jButton3" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="cmdNext2" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton4">
+            <Component class="javax.swing.JButton" name="cmdCancel2">
               <Properties>
                 <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
                   <action class="piusys.customers.FrmAddCustomer" id="cancel" methodName="cancel"/>
                 </Property>
-                <Property name="name" type="java.lang.String" value="jButton4" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="cmdCancel2" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField7">
+            <Component class="javax.swing.JTextField" name="txtEmail">
               <Properties>
-                <Property name="text" type="java.lang.String" resourceKey="jTextField7.text"/>
-                <Property name="name" type="java.lang.String" value="jTextField7" noResource="true"/>
+                <Property name="text" type="java.lang.String" resourceKey="txtEmail.text"/>
+                <Property name="name" type="java.lang.String" value="txtEmail" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel8">
+            <Component class="javax.swing.JLabel" name="lblEmail">
               <Properties>
-                <Property name="text" type="java.lang.String" resourceKey="jLabel8.text"/>
-                <Property name="name" type="java.lang.String" value="jLabel8" noResource="true"/>
+                <Property name="text" type="java.lang.String" resourceKey="lblEmail.text"/>
+                <Property name="name" type="java.lang.String" value="lblEmail" noResource="true"/>
               </Properties>
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel3">
+        <Container class="javax.swing.JPanel" name="telephonePanel">
           <Properties>
-            <Property name="name" type="java.lang.String" value="jPanel3" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="telephonePanel" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Telephone">
-                <Property name="tabTitle" type="java.lang.String" resourceKey="jPanel3.TabConstraints.tabTitle"/>
-                <Property name="tabIcon" type="javax.swing.Icon" resourceKey="jPanel3.TabConstraints.tabIcon"/>
+                <Property name="tabTitle" type="java.lang.String" resourceKey="telephonePanel.TabConstraints.tabTitle"/>
+                <Property name="tabIcon" type="javax.swing.Icon" resourceKey="telephonePanel.TabConstraints.tabIcon"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -319,21 +331,21 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                              <Component id="cmdNext3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                              <Component id="cmdCancel3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblPrimaryPhone" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblPhone2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblFax" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField6" alignment="0" pref="234" max="32767" attributes="0"/>
-                                  <Component id="jTextField5" alignment="0" pref="234" max="32767" attributes="0"/>
-                                  <Component id="jTextField4" alignment="0" pref="234" max="32767" attributes="0"/>
+                                  <Component id="txtFax" alignment="0" pref="263" max="32767" attributes="0"/>
+                                  <Component id="txtPhone2" alignment="0" pref="263" max="32767" attributes="0"/>
+                                  <Component id="txtPhone1" alignment="0" pref="263" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -346,23 +358,23 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblPrimaryPhone" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtPhone1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblPhone2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtPhone2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblFax" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtFax" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="138" max="32767" attributes="0"/>
+                      <EmptySpace pref="143" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmdCancel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmdNext3" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -370,69 +382,69 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel5">
+            <Component class="javax.swing.JLabel" name="lblPrimaryPhone">
               <Properties>
-                <Property name="text" type="java.lang.String" resourceKey="jLabel5.text"/>
-                <Property name="name" type="java.lang.String" value="jLabel5" noResource="true"/>
+                <Property name="text" type="java.lang.String" resourceKey="lblPrimaryPhone.text"/>
+                <Property name="name" type="java.lang.String" value="lblPrimaryPhone" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField4">
+            <Component class="javax.swing.JTextField" name="txtPhone1">
               <Properties>
-                <Property name="text" type="java.lang.String" resourceKey="jTextField4.text"/>
-                <Property name="name" type="java.lang.String" value="jTextField4" noResource="true"/>
+                <Property name="text" type="java.lang.String" resourceKey="txtPhone1.text"/>
+                <Property name="name" type="java.lang.String" value="txtPhone1" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel6">
+            <Component class="javax.swing.JLabel" name="lblPhone2">
               <Properties>
-                <Property name="text" type="java.lang.String" resourceKey="jLabel6.text"/>
-                <Property name="name" type="java.lang.String" value="jLabel6" noResource="true"/>
+                <Property name="text" type="java.lang.String" resourceKey="lblPhone2.text"/>
+                <Property name="name" type="java.lang.String" value="lblPhone2" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField5">
+            <Component class="javax.swing.JTextField" name="txtPhone2">
               <Properties>
-                <Property name="text" type="java.lang.String" resourceKey="jTextField5.text"/>
-                <Property name="name" type="java.lang.String" value="jTextField5" noResource="true"/>
+                <Property name="text" type="java.lang.String" resourceKey="txtPhone2.text"/>
+                <Property name="name" type="java.lang.String" value="txtPhone2" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton5">
+            <Component class="javax.swing.JButton" name="cmdCancel3">
               <Properties>
                 <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
                   <action class="piusys.customers.FrmAddCustomer" id="cancel" methodName="cancel"/>
                 </Property>
-                <Property name="name" type="java.lang.String" value="jButton5" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="cmdCancel3" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton6">
+            <Component class="javax.swing.JButton" name="cmdNext3">
               <Properties>
                 <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
                   <action class="piusys.customers.FrmAddCustomer" id="next" methodName="next"/>
                 </Property>
-                <Property name="name" type="java.lang.String" value="jButton6" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="cmdNext3" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel7">
+            <Component class="javax.swing.JLabel" name="lblFax">
               <Properties>
-                <Property name="text" type="java.lang.String" resourceKey="jLabel7.text"/>
-                <Property name="name" type="java.lang.String" value="jLabel7" noResource="true"/>
+                <Property name="text" type="java.lang.String" resourceKey="lblFax.text"/>
+                <Property name="name" type="java.lang.String" value="lblFax" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField6">
+            <Component class="javax.swing.JTextField" name="txtFax">
               <Properties>
-                <Property name="text" type="java.lang.String" resourceKey="jTextField6.text"/>
-                <Property name="name" type="java.lang.String" value="jTextField6" noResource="true"/>
+                <Property name="text" type="java.lang.String" resourceKey="txtFax.text"/>
+                <Property name="name" type="java.lang.String" value="txtFax" noResource="true"/>
               </Properties>
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel4">
+        <Container class="javax.swing.JPanel" name="NotesPanel">
           <Properties>
-            <Property name="name" type="java.lang.String" value="jPanel4" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="NotesPanel" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Notes">
-                <Property name="tabTitle" type="java.lang.String" resourceKey="jPanel4.TabConstraints.tabTitle"/>
-                <Property name="tabIcon" type="javax.swing.Icon" resourceKey="jPanel4.TabConstraints.tabIcon"/>
+                <Property name="tabTitle" type="java.lang.String" resourceKey="NotesPanel.TabConstraints.tabTitle"/>
+                <Property name="tabIcon" type="javax.swing.Icon" resourceKey="NotesPanel.TabConstraints.tabIcon"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -444,14 +456,14 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNotes" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" pref="268" max="32767" attributes="0"/>
+                              <Component id="jScrollPane2" pref="289" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jButton7" min="-2" max="-2" attributes="0"/>
+                              <Component id="cmbSave" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton8" min="-2" max="-2" attributes="0"/>
+                              <Component id="cmdCancel4" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -463,13 +475,13 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNotes" min="-2" max="-2" attributes="0"/>
                           <Component id="jScrollPane2" pref="204" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButton8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton7" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmdCancel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmbSave" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -487,36 +499,36 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="jTextArea2">
+                <Component class="javax.swing.JTextArea" name="txtNotes">
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
-                    <Property name="name" type="java.lang.String" value="jTextArea2" noResource="true"/>
+                    <Property name="name" type="java.lang.String" value="txtNotes" noResource="true"/>
                   </Properties>
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="jLabel9">
+            <Component class="javax.swing.JLabel" name="lblNotes">
               <Properties>
-                <Property name="text" type="java.lang.String" resourceKey="jLabel9.text"/>
-                <Property name="name" type="java.lang.String" value="jLabel9" noResource="true"/>
+                <Property name="text" type="java.lang.String" resourceKey="lblNotes.text"/>
+                <Property name="name" type="java.lang.String" value="lblNotes" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton7">
+            <Component class="javax.swing.JButton" name="cmbSave">
               <Properties>
                 <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
                   <action class="piusys.customers.FrmAddCustomer" id="save" methodName="save"/>
                 </Property>
-                <Property name="text" type="java.lang.String" resourceKey="jButton7.text"/>
-                <Property name="name" type="java.lang.String" value="jButton7" noResource="true"/>
+                <Property name="text" type="java.lang.String" resourceKey="cmbSave.text"/>
+                <Property name="name" type="java.lang.String" value="cmbSave" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton8">
+            <Component class="javax.swing.JButton" name="cmdCancel4">
               <Properties>
                 <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
                   <action class="piusys.customers.FrmAddCustomer" id="cancel" methodName="cancel"/>
                 </Property>
-                <Property name="name" type="java.lang.String" value="jButton8" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="cmdCancel4" noResource="true"/>
               </Properties>
             </Component>
           </SubComponents>

@@ -76,12 +76,20 @@ public class PIUSYSApp extends SingleFrameApplication
      */
     public static void main(String[] args)
     {
-        String[] li =
+         String[] li =
         {
-            "Licensee=Maurice Rogers", "LicenseRegistrationNumber=------", "Product=Synthetica", "LicenseType=Non Commercial", "ExpireDate=--.--.----", "MaxVersion=2.999.999"
+            "Licensee=JYLOO Software", "LicenseRegistrationNumber=------", "Product=Synthetica", "LicenseType=For internal tests only", "ExpireDate=--.--.----", "MaxVersion=2.999.999"
         };
         UIManager.put("Synthetica.license.info", li);
-        UIManager.put("Synthetica.license.key", "2BCF99E0-3738913D-F30B5EC9-622511CC-4F19572A");
+        UIManager.put("Synthetica.license.key", "A90D3B2B-53186981-0ED9A1C2-F00601BF-889A89BA");
+
+        String[] li2 =
+        {
+            "Licensee=JYLOO Software", "LicenseRegistrationNumber=------", "Product=SyntheticaAddons", "LicenseType=For internal tests only", "ExpireDate=--.--.----", "MaxVersion=1.999.999"
+        };
+        UIManager.put("SyntheticaAddons.license.info", li2);
+        UIManager.put("SyntheticaAddons.license.key", "CC98A980-13381C7D-30604C91-F5BC5376-776C6006");
+        
         launch(PIUSYSApp.class, args);
     }
 }

@@ -79,6 +79,15 @@
                 <Property name="name" type="java.lang.String" value="addCustomer" noResource="true"/>
               </Properties>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="editCustomer">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="piusys.PIUSYSView" id="showEditCustomer" methodName="showEditCustomer"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="editCustomer.text"/>
+                <Property name="name" type="java.lang.String" value="editCustomer" noResource="true"/>
+              </Properties>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="projectMenu">

@@ -18,6 +18,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import piusys.customers.FrmAddCustomer;
+import piusys.customers.FrmEditCustomer;
 import piusys.kernel.Environment;
 import piusys.projects.FrmAddProject;
 
@@ -26,16 +27,17 @@ import piusys.projects.FrmAddProject;
  */
 public class PIUSYSView extends FrameView
 {
-    
+
     static final Logger logger = Logger.getLogger(PIUSYSView.class.getName());
     //FORM OBJECTS
     FrmAddCustomer frmAddCustomer = null;
+    FrmEditCustomer frmEditCustomer = null;
     FrmAddProject frmAddProject = null;
-    
+
     public PIUSYSView(SingleFrameApplication app)
     {
         super(app);
-        
+
         initComponents();
 
         // status bar initialization - message timeout, idle icon and busy animation, etc
@@ -43,7 +45,7 @@ public class PIUSYSView extends FrameView
         int messageTimeout = resourceMap.getInteger("StatusBar.messageTimeout");
         messageTimer = new Timer(messageTimeout, new ActionListener()
         {
-            
+
             public void actionPerformed(ActionEvent e)
             {
                 statusMessageLabel.setText("");
@@ -57,7 +59,7 @@ public class PIUSYSView extends FrameView
         }
         busyIconTimer = new Timer(busyAnimationRate, new ActionListener()
         {
-            
+
             public void actionPerformed(ActionEvent e)
             {
                 busyIconIndex = (busyIconIndex + 1) % busyIcons.length;
@@ -72,7 +74,7 @@ public class PIUSYSView extends FrameView
         TaskMonitor taskMonitor = new TaskMonitor(getApplication().getContext());
         taskMonitor.addPropertyChangeListener(new java.beans.PropertyChangeListener()
         {
-            
+
             public void propertyChange(java.beans.PropertyChangeEvent evt)
             {
                 String propertyName = evt.getPropertyName();
@@ -109,7 +111,7 @@ public class PIUSYSView extends FrameView
                 }
             }
         });
-        
+
         Environment.createConnection();
         Environment.setDesktopPane(desktopPane);
         Environment.setMainFrame(getFrame());
@@ -146,7 +148,7 @@ public class PIUSYSView extends FrameView
         }
         return false;
     }
-    
+
     @Action
     public void showAboutBox()
     {
@@ -175,6 +177,7 @@ public class PIUSYSView extends FrameView
         javax.swing.JMenuItem exitMenuItem = new javax.swing.JMenuItem();
         customerMenu = new javax.swing.JMenu();
         addCustomer = new javax.swing.JMenuItem();
+        editCustomer = new javax.swing.JMenuItem();
         projectMenu = new javax.swing.JMenu();
         addProject = new javax.swing.JMenuItem();
         javax.swing.JMenu helpMenu = new javax.swing.JMenu();
@@ -222,6 +225,11 @@ public class PIUSYSView extends FrameView
         addCustomer.setText(resourceMap.getString("addCustomer.text")); // NOI18N
         addCustomer.setName("addCustomer"); // NOI18N
         customerMenu.add(addCustomer);
+
+        editCustomer.setAction(actionMap.get("showEditCustomer")); // NOI18N
+        editCustomer.setText(resourceMap.getString("editCustomer.text")); // NOI18N
+        editCustomer.setName("editCustomer"); // NOI18N
+        customerMenu.add(editCustomer);
 
         menuBar.add(customerMenu);
 
@@ -309,7 +317,7 @@ public class PIUSYSView extends FrameView
             }
         }
     }
-    
+
     @Action
     public void showAddProject()
     {
@@ -333,11 +341,36 @@ public class PIUSYSView extends FrameView
             }
         }
     }
+
+    @Action
+    public void showEditCustomer()
+    {
+        //Verify if the form is already loaded
+        boolean AlreadyLoaded = isLoaded("Edit Customer");
+        if (AlreadyLoaded == false)
+        {
+            frmEditCustomer = new FrmEditCustomer();
+            desktopPane.add(frmEditCustomer);
+            //Load the Form
+            frmEditCustomer.setVisible(true);
+            frmEditCustomer.show();
+            try
+            {
+                frmEditCustomer.setIcon(false);
+                frmEditCustomer.setSelected(true);
+            }
+            catch (Exception e)
+            {
+                logger.log(Level.SEVERE, "Error displaying the form.", e);
+            }
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem addCustomer;
     private javax.swing.JMenuItem addProject;
     private javax.swing.JMenu customerMenu;
     private javax.swing.JDesktopPane desktopPane;
+    private javax.swing.JMenuItem editCustomer;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JProgressBar progressBar;

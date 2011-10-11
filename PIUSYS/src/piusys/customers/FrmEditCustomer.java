@@ -12,6 +12,7 @@ package piusys.customers;
 
 import de.javasoft.swing.JYTableHeader;
 import de.javasoft.swing.jytable.renderer.CellLayoutHint;
+import java.util.ArrayList;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
@@ -25,7 +26,7 @@ import piusys.kernel.Utilities;
  */
 public class FrmEditCustomer extends javax.swing.JInternalFrame
 {
-    
+
     static final Logger logger = Logger.getLogger(FrmEditCustomer.class.getName());
     static String validationText = "";
 
@@ -94,6 +95,7 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
         setFrameIcon(resourceMap.getIcon("Form.frameIcon")); // NOI18N
         setName("Form"); // NOI18N
 
+        customerTabbedPane.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
         customerTabbedPane.setName("customerTabbedPane"); // NOI18N
 
         searchPanel.setName("searchPanel"); // NOI18N
@@ -117,6 +119,11 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
             }
         ));
         customerTable.setName("customerTable"); // NOI18N
+        customerTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                customerTableMouseClicked(evt);
+            }
+        });
         jYTableScrollPane1.setViewportView(customerTable);
         customerTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         customerTable.getColumnModel().getColumn(0).setHeaderValue(resourceMap.getString("customerTable.columnModel.title0")); // NOI18N
@@ -134,14 +141,14 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
                         .addComponent(jButton3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton2))
-                    .addComponent(jYTableScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE))
+                    .addComponent(jYTableScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE))
                 .addContainerGap())
         );
         searchPanelLayout.setVerticalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, searchPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jYTableScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+                .addComponent(jYTableScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
@@ -149,7 +156,7 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
                 .addContainerGap())
         );
 
-        customerTabbedPane.addTab(resourceMap.getString("searchPanel.TabConstraints.tabTitle"), searchPanel); // NOI18N
+        customerTabbedPane.addTab(resourceMap.getString("searchPanel.TabConstraints.tabTitle"), resourceMap.getIcon("searchPanel.TabConstraints.tabIcon"), searchPanel); // NOI18N
 
         generalPanel.setName("generalPanel"); // NOI18N
 
@@ -202,7 +209,7 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
                             .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, generalPanelLayout.createSequentialGroup()
                         .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
                         .addComponent(cmdNext)
                         .addGap(18, 18, 18)
                         .addComponent(cmdCancel)))
@@ -223,7 +230,7 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
                 .addGroup(generalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSecContact)
                     .addComponent(txtContact2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 229, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 228, Short.MAX_VALUE)
                 .addGroup(generalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmdCancel)
                     .addComponent(cmdNext)
@@ -274,8 +281,8 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
                             .addComponent(lblEmail))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(addressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE))))
+                            .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         addressPanelLayout.setVerticalGroup(
@@ -289,7 +296,7 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
                 .addGroup(addressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblEmail))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
                 .addGroup(addressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmdCancel2)
                     .addComponent(cmdNext2))
@@ -342,9 +349,9 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
                             .addComponent(lblFax))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(telephonePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtFax, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
-                            .addComponent(txtPhone2, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
-                            .addComponent(txtPhone1, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE))))
+                            .addComponent(txtFax, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                            .addComponent(txtPhone2, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                            .addComponent(txtPhone1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         telephonePanelLayout.setVerticalGroup(
@@ -362,7 +369,7 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
                 .addGroup(telephonePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblFax)
                     .addComponent(txtFax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 229, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 228, Short.MAX_VALUE)
                 .addGroup(telephonePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmdCancel3)
                     .addComponent(cmdNext3))
@@ -400,7 +407,7 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
                     .addGroup(NotesPanelLayout.createSequentialGroup()
                         .addComponent(lblNotes)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, NotesPanelLayout.createSequentialGroup()
                         .addComponent(cmbSave)
                         .addGap(18, 18, 18)
@@ -413,7 +420,7 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
                 .addContainerGap()
                 .addGroup(NotesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblNotes)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(NotesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmdCancel4)
@@ -443,28 +450,36 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void customerTableMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_customerTableMouseClicked
+    {//GEN-HEADEREND:event_customerTableMouseClicked
+        if (evt.getClickCount() >= 2)
+        {
+            loadInfo();
+        }
+    }//GEN-LAST:event_customerTableMouseClicked
+
     @Action
     public void cancel()
     {
         Utilities.showCancelScreen(this);
     }
-    
+
     @Action
     public void next()
     {
         customerTabbedPane.setSelectedIndex(customerTabbedPane.getSelectedIndex() + 1);
     }
-    
+
     @Action
     public void save()
     {
-        
+
         if (!passedValidation())
         {
             Utilities.showWarningMessage(rootPane, validationText);
             return;
         }
-        
+
         String custName = txtName.getText().trim();
         String custContact1 = txtContact1.getText().trim();
         String custContact2 = txtContact2.getText().trim();
@@ -475,7 +490,7 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
         String custFax = txtFax.getText().trim();
         String custNotes = txtNotes.getText().trim();
         boolean saveCustomer = Customer.saveCustomer(custName, custContact1, custContact2, custAddress, custPhone1, custPhone2, custEmail, custFax, custFax, custNotes);
-        
+
         if (saveCustomer)
         {
             String message = "The customer was successfully added to the system.\n"
@@ -496,14 +511,14 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
                     + "Kindly verify your input and try again.";
             Utilities.showErrorMessage(rootPane, message);
         }
-        
+
     }
-    
+
     private boolean passedValidation()
     {
         boolean passed = true;
         validationText = "Kindly correct the issues below before proceeding.\n\n";
-        
+
         String custName = txtName.getText().trim();
         String custContact1 = txtContact1.getText().trim();
 //        String custPhone1 = txtPhone1.getText().trim();
@@ -517,23 +532,23 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
             validationText += "Name cannot be empty.\n";
             passed = false;
         }
-        
+
         if (custContact1.isEmpty())
         {
             validationText += "You must have at least one contact person listed.\n";
             passed = false;
         }
-        
+
         return passed;
     }
-    
+
     @Action
     public void resetForm()
     {
         remove(customerTabbedPane);
         initComponents();
     }
-    
+
     private void populateLists()
     {
         customerTable.setModel(Customer.searchCustomers());
@@ -541,9 +556,17 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
         CellLayoutHint hint = header.getCellLayoutHint();
         //center header text
         header.setCellLayoutHint(new CellLayoutHint(hint.sortMarkerPosition, SwingConstants.CENTER, hint.verticalAlignment));
-        
-       
-        
+    }
+
+    private void loadInfo()
+    {
+        if (customerTable.getSelectedRow() != -1)
+        {
+            String custID = customerTable.getValueAt(customerTable.getSelectedRow(), 0).toString();
+            ArrayList<String> custDetails = Customer.getCustomerDetails(custID);
+            txtName.setText(custDetails.get(1));
+            txtContact1.setText(title);
+        }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel NotesPanel;

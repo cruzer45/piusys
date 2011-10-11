@@ -120,4 +120,46 @@ public class Customer
         model.addColumn("Sec. Contact", custContact2s.toArray());
         return model;
     }
+    
+    public static ArrayList<String> getCustomerDetails(String custID)
+    {
+        ArrayList<String> custInfo = new ArrayList<String>();
+        
+        try
+        {
+            String sql = "SELECT `custID`, `custName`, `custContact1`, `custContact2`, `custAddress`, `custPhone1`, `custPhone2`, `custEmail`, `custFax`, `custTIN`, `custNotes`, `custStatus` "
+                    + " FROM `PIUSYS`.`customers` "
+                    + "WHERE `custID` = ?;";
+            PreparedStatement prep = Environment.getConnection().prepareStatement(sql);
+            prep.setString(1, custID);
+            ResultSet rs = prep.executeQuery();
+            while (rs.next())
+            {
+                custInfo.add(rs.getString("custID"));//0
+                custInfo.add(rs.getString("custName"));//1
+                custInfo.add(rs.getString("custContact1"));//2
+                custInfo.add(rs.getString("custContact2"));//3
+                custInfo.add(rs.getString("custAddress"));//4
+                custInfo.add(rs.getString("custPhone1"));//5
+                custInfo.add(rs.getString("custPhone2"));//6
+                custInfo.add(rs.getString("custEmail"));//7
+                custInfo.add(rs.getString("custFax"));//8
+                custInfo.add(rs.getString("custTIN"));//9
+                custInfo.add(rs.getString("custNotes"));//10
+                custInfo.add(rs.getString("custStatus"));//11
+                
+            }
+            rs.close();
+            prep.close();
+           
+        }
+        catch (Exception e)
+        {
+            String message = "An error occurred while getting the customer details.";
+            logger.log(Level.SEVERE, message, e);
+        }
+        
+        return custInfo;
+    }
+    
 }

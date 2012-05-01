@@ -10,6 +10,7 @@
  */
 package piusys.customers;
 
+import java.util.HashMap;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.jdesktop.application.Action;
@@ -401,16 +402,18 @@ public class FrmAddCustomer extends javax.swing.JInternalFrame
             return;
         }
 
-        String custName = txtName.getText().trim();
-        String custContact1 = txtContact1.getText().trim();
-        String custContact2 = txtContact2.getText().trim();
-        String custAddress = txtAddress.getText().trim();
-        String custPhone1 = txtPhone1.getText().trim();
-        String custPhone2 = txtPhone2.getText().trim();
-        String custEmail = txtEmail.getText().trim();
-        String custFax = txtFax.getText().trim();
-        String custNotes = txtNotes.getText().trim();
-        boolean saveCustomer = Customer.saveCustomer(custName, custContact1, custContact2, custAddress, custPhone1, custPhone2, custEmail, custFax, custFax, custNotes);
+        HashMap<String, String>  params = new HashMap<String, String>();
+        params.put("custName", txtName.getText().trim());
+        params.put("custContact1", txtContact1.getText().trim());
+        params.put("custContact2", txtContact2.getText().trim());
+        params.put("custAddress", txtAddress.getText().trim());
+        params.put("custPhone1", txtPhone1.getText().trim());
+        params.put("custPhone2", txtPhone2.getText().trim());
+        params.put("custEmail", txtEmail.getText().trim());
+        params.put("custFax", txtFax.getText().trim());
+        params.put("custNotes", txtNotes.getText().trim());
+        
+        boolean saveCustomer = Customer.saveCustomer(params);
 
         if (saveCustomer)
         {

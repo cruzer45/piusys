@@ -1,22 +1,14 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
  * FrmAddCustomer.java
  *
  * Created on Sep 26, 2011, 5:52:55 AM
  */
 package piusys.customers;
 
-import de.javasoft.swing.JYTableHeader;
-import de.javasoft.swing.jytable.renderer.CellLayoutHint;
-import java.util.ArrayList;
+import java.awt.event.KeyEvent;
+import java.util.HashMap;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
-import javax.swing.table.TableColumn;
 import org.jdesktop.application.Action;
 import piusys.kernel.Utilities;
 
@@ -50,8 +42,11 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
         searchPanel = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jYTableScrollPane1 = new de.javasoft.swing.JYTableScrollPane();
-        customerTable = new de.javasoft.swing.JYTable();
+        lblSearch = new javax.swing.JLabel();
+        txtSearch = new javax.swing.JTextField();
+        cmdSearch = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        customerTable = new javax.swing.JTable();
         generalPanel = new javax.swing.JPanel();
         lblName = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
@@ -62,6 +57,8 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
         cmdCancel = new javax.swing.JButton();
         cmdNext = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        lblID = new javax.swing.JLabel();
+        txtID = new javax.swing.JTextField();
         addressPanel = new javax.swing.JPanel();
         lblAddress = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -108,14 +105,30 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
         jButton3.setAction(actionMap.get("next")); // NOI18N
         jButton3.setName("jButton3"); // NOI18N
 
-        jYTableScrollPane1.setName("jYTableScrollPane1"); // NOI18N
+        lblSearch.setText(resourceMap.getString("lblSearch.text")); // NOI18N
+        lblSearch.setName("lblSearch"); // NOI18N
 
+        txtSearch.setText(resourceMap.getString("txtSearch.text")); // NOI18N
+        txtSearch.setName("txtSearch"); // NOI18N
+        txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtSearchKeyPressed(evt);
+            }
+        });
+
+        cmdSearch.setAction(actionMap.get("search")); // NOI18N
+        cmdSearch.setText(resourceMap.getString("cmdSearch.text")); // NOI18N
+        cmdSearch.setName("cmdSearch"); // NOI18N
+
+        jScrollPane3.setName("jScrollPane3"); // NOI18N
+
+        customerTable.setAutoCreateRowSorter(true);
         customerTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Name", "Pri. Contact", "Sec. Contact"
+                "ID", "Customer", "Pri. Contact", "Sec. Contact"
             }
         ));
         customerTable.setName("customerTable"); // NOI18N
@@ -124,31 +137,43 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
                 customerTableMouseClicked(evt);
             }
         });
-        jYTableScrollPane1.setViewportView(customerTable);
+        jScrollPane3.setViewportView(customerTable);
         customerTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         customerTable.getColumnModel().getColumn(0).setHeaderValue(resourceMap.getString("customerTable.columnModel.title0")); // NOI18N
         customerTable.getColumnModel().getColumn(1).setHeaderValue(resourceMap.getString("customerTable.columnModel.title1")); // NOI18N
         customerTable.getColumnModel().getColumn(2).setHeaderValue(resourceMap.getString("customerTable.columnModel.title2")); // NOI18N
+        customerTable.getColumnModel().getColumn(3).setHeaderValue(resourceMap.getString("customerTable.columnModel.title3")); // NOI18N
 
         javax.swing.GroupLayout searchPanelLayout = new javax.swing.GroupLayout(searchPanel);
         searchPanel.setLayout(searchPanelLayout);
         searchPanelLayout.setHorizontalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(searchPanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, searchPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, searchPanelLayout.createSequentialGroup()
+                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, searchPanelLayout.createSequentialGroup()
+                        .addComponent(lblSearch)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmdSearch))
+                    .addGroup(searchPanelLayout.createSequentialGroup()
                         .addComponent(jButton3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2))
-                    .addComponent(jYTableScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE))
+                        .addComponent(jButton2)))
                 .addContainerGap())
         );
         searchPanelLayout.setVerticalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, searchPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jYTableScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSearch)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmdSearch))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
@@ -190,6 +215,13 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
         jButton1.setText(resourceMap.getString("jButton1.text")); // NOI18N
         jButton1.setName("jButton1"); // NOI18N
 
+        lblID.setText(resourceMap.getString("lblID.text")); // NOI18N
+        lblID.setName("lblID"); // NOI18N
+
+        txtID.setEditable(false);
+        txtID.setText(resourceMap.getString("txtID.text")); // NOI18N
+        txtID.setName("txtID"); // NOI18N
+
         javax.swing.GroupLayout generalPanelLayout = new javax.swing.GroupLayout(generalPanel);
         generalPanel.setLayout(generalPanelLayout);
         generalPanelLayout.setHorizontalGroup(
@@ -198,27 +230,33 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
                 .addContainerGap()
                 .addGroup(generalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(generalPanelLayout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
+                        .addComponent(cmdNext)
+                        .addGap(18, 18, 18)
+                        .addComponent(cmdCancel))
+                    .addGroup(generalPanelLayout.createSequentialGroup()
                         .addGroup(generalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblName)
                             .addComponent(lblPriContact)
-                            .addComponent(lblSecContact))
+                            .addComponent(lblSecContact)
+                            .addComponent(lblID))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(generalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtContact2, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
-                            .addComponent(txtContact1, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
-                            .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, generalPanelLayout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
-                        .addComponent(cmdNext)
-                        .addGap(18, 18, 18)
-                        .addComponent(cmdCancel)))
+                            .addComponent(txtID, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
+                            .addComponent(txtContact2, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
+                            .addComponent(txtContact1, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
+                            .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         generalPanelLayout.setVerticalGroup(
             generalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(generalPanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, generalPanelLayout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(generalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblID)
+                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(generalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblName)
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -230,7 +268,7 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
                 .addGroup(generalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSecContact)
                     .addComponent(txtContact2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 228, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
                 .addGroup(generalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmdCancel)
                     .addComponent(cmdNext)
@@ -281,8 +319,8 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
                             .addComponent(lblEmail))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(addressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE))))
+                            .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         addressPanelLayout.setVerticalGroup(
@@ -296,7 +334,7 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
                 .addGroup(addressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblEmail))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
                 .addGroup(addressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmdCancel2)
                     .addComponent(cmdNext2))
@@ -349,9 +387,9 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
                             .addComponent(lblFax))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(telephonePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtFax, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                            .addComponent(txtPhone2, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                            .addComponent(txtPhone1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))))
+                            .addComponent(txtFax, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
+                            .addComponent(txtPhone2, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
+                            .addComponent(txtPhone1, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         telephonePanelLayout.setVerticalGroup(
@@ -369,7 +407,7 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
                 .addGroup(telephonePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblFax)
                     .addComponent(txtFax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 228, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 198, Short.MAX_VALUE)
                 .addGroup(telephonePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmdCancel3)
                     .addComponent(cmdNext3))
@@ -407,7 +445,7 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
                     .addGroup(NotesPanelLayout.createSequentialGroup()
                         .addComponent(lblNotes)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, NotesPanelLayout.createSequentialGroup()
                         .addComponent(cmbSave)
                         .addGap(18, 18, 18)
@@ -420,7 +458,7 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
                 .addContainerGap()
                 .addGroup(NotesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblNotes)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(NotesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmdCancel4)
@@ -436,23 +474,31 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(customerTabbedPane)
+                .addComponent(customerTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(customerTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
+                .addComponent(customerTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtSearchKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_txtSearchKeyPressed
+    {//GEN-HEADEREND:event_txtSearchKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER)
+        {
+            search();
+        }
+    }//GEN-LAST:event_txtSearchKeyPressed
+
     private void customerTableMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_customerTableMouseClicked
     {//GEN-HEADEREND:event_customerTableMouseClicked
-        if (evt.getClickCount() >= 2)
+        if (evt.getClickCount() >= 2 && customerTable.getSelectedRow() != -1)
         {
             loadInfo();
         }
@@ -480,16 +526,17 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
             return;
         }
 
-        String custName = txtName.getText().trim();
-        String custContact1 = txtContact1.getText().trim();
-        String custContact2 = txtContact2.getText().trim();
-        String custAddress = txtAddress.getText().trim();
-        String custPhone1 = txtPhone1.getText().trim();
-        String custPhone2 = txtPhone2.getText().trim();
-        String custEmail = txtEmail.getText().trim();
-        String custFax = txtFax.getText().trim();
-        String custNotes = txtNotes.getText().trim();
-        boolean saveCustomer = Customer.saveCustomer(custName, custContact1, custContact2, custAddress, custPhone1, custPhone2, custEmail, custFax, custFax, custNotes);
+        HashMap<String, String> params = new HashMap<String, String>();
+        params.put("custName", txtName.getText().trim());
+        params.put("custContact1", txtContact1.getText().trim());
+        params.put("custContact2", txtContact2.getText().trim());
+        params.put("custAddress", txtAddress.getText().trim());
+        params.put("custPhone1", txtPhone1.getText().trim());
+        params.put("custPhone2", txtPhone2.getText().trim());
+        params.put("custEmail", txtEmail.getText().trim());
+        params.put("custFax", txtFax.getText().trim());
+        params.put("custNotes", txtNotes.getText().trim());
+        boolean saveCustomer = Customer.saveCustomer(params);
 
         if (saveCustomer)
         {
@@ -551,11 +598,6 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
 
     private void populateLists()
     {
-        customerTable.setModel(Customer.searchCustomers());
-        JYTableHeader header = (JYTableHeader) customerTable.getTableHeader();
-        CellLayoutHint hint = header.getCellLayoutHint();
-        //center header text
-        header.setCellLayoutHint(new CellLayoutHint(hint.sortMarkerPosition, SwingConstants.CENTER, hint.verticalAlignment));
     }
 
     private void loadInfo()
@@ -563,10 +605,26 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
         if (customerTable.getSelectedRow() != -1)
         {
             String custID = customerTable.getValueAt(customerTable.getSelectedRow(), 0).toString();
-            ArrayList<String> custDetails = Customer.getCustomerDetails(custID);
-            txtName.setText(custDetails.get(1));
-            txtContact1.setText(title);
+            HashMap<String, String> customerDetails = Customer.getCustomerDetails(custID);
+            txtID.setText(custID);
+            txtName.setText(customerDetails.get("custName"));
+            txtContact1.setText(customerDetails.get("custContact1"));
+            txtContact2.setText(customerDetails.get("custContact2"));
+            txtAddress.setText(customerDetails.get("custAddress"));
+            txtEmail.setText(customerDetails.get("custEmail"));
+            txtPhone1.setText(customerDetails.get("custPhone1"));
+            txtPhone2.setText(customerDetails.get("custPhone2"));
+            txtFax.setText(customerDetails.get("custFax"));
+            txtNotes.setText(customerDetails.get("custNotes"));
+            next();
         }
+    }
+
+    @Action
+    public void search()
+    {
+        String criteria = txtSearch.getText().trim();
+        customerTable.setModel(Customer.searchCustomers(criteria));
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel NotesPanel;
@@ -579,23 +637,26 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
     private javax.swing.JButton cmdNext;
     private javax.swing.JButton cmdNext2;
     private javax.swing.JButton cmdNext3;
+    private javax.swing.JButton cmdSearch;
     private javax.swing.JTabbedPane customerTabbedPane;
-    private de.javasoft.swing.JYTable customerTable;
+    private javax.swing.JTable customerTable;
     private javax.swing.JPanel generalPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private de.javasoft.swing.JYTableScrollPane jYTableScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblFax;
+    private javax.swing.JLabel lblID;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblNotes;
     private javax.swing.JLabel lblPhone2;
     private javax.swing.JLabel lblPriContact;
     private javax.swing.JLabel lblPrimaryPhone;
+    private javax.swing.JLabel lblSearch;
     private javax.swing.JLabel lblSecContact;
     private javax.swing.JPanel searchPanel;
     private javax.swing.JPanel telephonePanel;
@@ -604,9 +665,11 @@ public class FrmEditCustomer extends javax.swing.JInternalFrame
     private javax.swing.JTextField txtContact2;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtFax;
+    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextArea txtNotes;
     private javax.swing.JTextField txtPhone1;
     private javax.swing.JTextField txtPhone2;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

@@ -30,7 +30,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="customerTabbedPane" max="32767" attributes="0"/>
+              <Component id="customerTabbedPane" pref="448" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -39,7 +39,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="customerTabbedPane" pref="378" max="32767" attributes="0"/>
+              <Component id="customerTabbedPane" pref="348" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -70,15 +70,22 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jScrollPane3" alignment="0" pref="419" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblSearch" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtSearch" pref="275" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="cmdSearch" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jButton3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jYTableScrollPane1" alignment="0" pref="387" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -87,8 +94,14 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmdSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jYTableScrollPane1" pref="294" max="32767" attributes="0"/>
+                      <Component id="jScrollPane3" pref="236" max="32767" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -117,18 +130,47 @@
                 <Property name="name" type="java.lang.String" value="jButton3" noResource="true"/>
               </Properties>
             </Component>
-            <Container class="de.javasoft.swing.JYTableScrollPane" name="jYTableScrollPane1">
+            <Component class="javax.swing.JLabel" name="lblSearch">
               <Properties>
-                <Property name="name" type="java.lang.String" value="jYTableScrollPane1" noResource="true"/>
+                <Property name="text" type="java.lang.String" resourceKey="lblSearch.text"/>
+                <Property name="name" type="java.lang.String" value="lblSearch" noResource="true"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtSearch">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="txtSearch.text"/>
+                <Property name="name" type="java.lang.String" value="txtSearch" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearchKeyPressed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="cmdSearch">
+              <Properties>
+                <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                  <action class="piusys.customers.FrmEditCustomer" id="search" methodName="search"/>
+                </Property>
+                <Property name="text" type="java.lang.String" resourceKey="cmdSearch.text"/>
+                <Property name="name" type="java.lang.String" value="cmdSearch" noResource="true"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="jScrollPane3" noResource="true"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="de.javasoft.swing.JYTable" name="customerTable">
+                <Component class="javax.swing.JTable" name="customerTable">
                   <Properties>
+                    <Property name="autoCreateRowSorter" type="boolean" value="true"/>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="3" rowCount="0">
-                        <Column editable="true" title="Name" type="java.lang.Object"/>
+                      <Table columnCount="4" rowCount="0">
+                        <Column editable="true" title="ID" type="java.lang.Object"/>
+                        <Column editable="true" title="Customer" type="java.lang.Object"/>
                         <Column editable="true" title="Pri. Contact" type="java.lang.Object"/>
                         <Column editable="true" title="Sec. Contact" type="java.lang.Object"/>
                       </Table>
@@ -147,6 +189,11 @@
                         </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title resourceKey="customerTable.columnModel.title2"/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title resourceKey="customerTable.columnModel.title3"/>
                           <Editor/>
                           <Renderer/>
                         </Column>
@@ -185,24 +232,26 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
+                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="193" max="32767" attributes="0"/>
+                              <Component id="cmdNext" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="cmdCancel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblName" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblPriContact" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblSecContact" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblID" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtContact2" alignment="0" pref="291" max="32767" attributes="0"/>
-                                  <Component id="txtContact1" alignment="0" pref="291" max="32767" attributes="0"/>
-                                  <Component id="txtName" alignment="0" pref="291" max="32767" attributes="0"/>
+                                  <Component id="txtID" alignment="0" pref="323" max="32767" attributes="0"/>
+                                  <Component id="txtContact2" alignment="0" pref="323" max="32767" attributes="0"/>
+                                  <Component id="txtContact1" alignment="0" pref="323" max="32767" attributes="0"/>
+                                  <Component id="txtName" alignment="0" pref="323" max="32767" attributes="0"/>
                               </Group>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="161" max="32767" attributes="0"/>
-                              <Component id="cmdNext" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="cmdCancel" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -211,7 +260,12 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblID" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtID" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblName" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -227,7 +281,7 @@
                           <Component id="lblSecContact" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtContact2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="228" max="32767" attributes="0"/>
+                      <EmptySpace pref="170" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="cmdCancel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cmdNext" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -302,6 +356,19 @@
                 <Property name="name" type="java.lang.String" value="jButton1" noResource="true"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JLabel" name="lblID">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="lblID.text"/>
+                <Property name="name" type="java.lang.String" value="lblID" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtID">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="text" type="java.lang.String" resourceKey="txtID.text"/>
+                <Property name="name" type="java.lang.String" value="txtID" noResource="true"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="addressPanel">
@@ -335,8 +402,8 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtEmail" alignment="1" pref="320" max="32767" attributes="0"/>
-                                  <Component id="jScrollPane1" alignment="0" pref="320" max="32767" attributes="0"/>
+                                  <Component id="txtEmail" alignment="1" pref="352" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane1" alignment="0" pref="352" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -357,7 +424,7 @@
                           <Component id="txtEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="137" max="32767" attributes="0"/>
+                      <EmptySpace pref="107" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="cmdCancel2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cmdNext2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -455,9 +522,9 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtFax" alignment="0" pref="300" max="32767" attributes="0"/>
-                                  <Component id="txtPhone2" alignment="0" pref="300" max="32767" attributes="0"/>
-                                  <Component id="txtPhone1" alignment="0" pref="300" max="32767" attributes="0"/>
+                                  <Component id="txtFax" alignment="0" pref="332" max="32767" attributes="0"/>
+                                  <Component id="txtPhone2" alignment="0" pref="332" max="32767" attributes="0"/>
+                                  <Component id="txtPhone1" alignment="0" pref="332" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -483,7 +550,7 @@
                           <Component id="lblFax" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtFax" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="228" max="32767" attributes="0"/>
+                      <EmptySpace pref="198" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="cmdCancel3" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cmdNext3" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -570,7 +637,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lblNotes" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" pref="334" max="32767" attributes="0"/>
+                              <Component id="jScrollPane2" pref="366" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="cmbSave" min="-2" max="-2" attributes="0"/>
@@ -588,7 +655,7 @@
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblNotes" min="-2" max="-2" attributes="0"/>
-                          <Component id="jScrollPane2" pref="294" max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" pref="264" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
